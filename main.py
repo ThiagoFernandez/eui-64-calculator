@@ -1,12 +1,12 @@
 import argparse
 import ipaddress
-
+from getmac import get_mac_address
 
 HEX = "0123456789abcdef"
 
 def crear_args():
     p = argparse.ArgumentParser(description="EUI-64 CALCULATOR")
-    p.add_argument("-m", "--mac", type=str, required=True, help="Ingrese la mac")
+    p.add_argument("-m", "--mac", type=str, default=get_mac_address(), help="Ingrese la mac")
     p.add_argument("-p", "--prefix", type=str, required=True, help="Ingrese el prefijo")
     return p.parse_args()
 
